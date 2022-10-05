@@ -77,7 +77,7 @@ s = """ """
 for i in L:
     s += i + "\n"
 st.markdown(s)
-
+st.write('faster flow through github baby!')
 ##C:\\Users\\Lenovo\\anaconda3\\envs\\streamlit
 
 
