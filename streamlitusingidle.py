@@ -16,6 +16,7 @@ if not firebase_admin._apps:
 
 db = firestore.client()
 ##db.collection('persons').add({'name':'Jeff','age':40})
+db.collection('Vacancy').document('just_rented').update({'Unit':'(1/1)-$1650'})
 
 
 # Goal: work on getting firebase data and printing it
@@ -78,6 +79,16 @@ for i in L:
     s += i + "\n"
 st.markdown(s)
 st.write('faster flow through github baby!')
+
+#STARTING THE REAL CODE BABY
+st.write('Rent Ready:')
+st.write('-  -  -  -  -  -  -  -  -  -  -')
+
+rent_ready = db.collection('Vacancy').where("type", "==", "rent_ready").get()
+for doc in rent_ready:
+    d = doc.to_dict()
+    st.write(d)
+
 ##C:\\Users\\Lenovo\\anaconda3\\envs\\streamlit
 
 
