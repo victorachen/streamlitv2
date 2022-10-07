@@ -87,7 +87,7 @@ def format2(dic):
     s = ''''''
     for i in dic:
         if i!='type':
-            s += format(i,'') + ', '
+            s += format(i,'') + ', '+"\n"
     return s
 #to do: put everything in """"""" string
 col1.header('Rent Ready:')
@@ -100,7 +100,7 @@ for doc in rent_ready:
             s+= format(i,d[i]) + "\n"+"\n"
 col1.markdown(s)
 
-col1.header('Unit Turns:')
+col1.subheader('Unit Turns:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in unit_turns:
     d = doc.to_dict()
@@ -115,19 +115,17 @@ for doc in just_rented:
         if i != 'type':
             col2.write(format(i,d[i]))
 
-col2.title('Under Construction:')
+col2.subheader('Under Construction:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in under_construction:
     d = doc.to_dict()
-    string = format2(d)
-    col2.code(string)
+    col2.code(format2(d))
 
 col2.header('No Status:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in no_status:
     d = doc.to_dict()
-    string = format2(d)
-    col2.write(string)
+    col2.write(format2(d))
 
 ##C:\\Users\\Lenovo\\anaconda3\\envs\\streamlit
 
