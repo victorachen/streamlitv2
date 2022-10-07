@@ -1,5 +1,9 @@
 # to do next:
-# alphabetize everything
+# alphabetize everything, do bullet points, but pricing at the top
+#col 1 vs col 2: https://daniellewisdl-streamlit-cheat-sheet-app-ytm9sg.streamlitapp.com/
+#plotly: https://mpkrass7-solid-octo-robot-migration-app-nabfxv.streamlitapp.com/
+#nav bar: https://github.com/giswqs/geemap-apps
+
 
 ##terminal commands: streamlit run C:\Users\Lenovo\PycharmProjects\streamlit\streamlitusingidle.py
 import streamlit as st
@@ -56,70 +60,75 @@ for i in d:
 
 # text_output()
 
+col1, col2 = st.columns(2)
+
 L = ['a', 'b', 'c', 'd']
 s = """"""
 for i in L:
     s += "- " + i + "\n"
     # st.markdown("- "+i)
-st.markdown(s)
+col1.markdown(s)
+
+col2.markdown(s)
 # st.write(":heavy_minus_sign:" * 34)
 # st.write('whatsup')
 #STARTING THE REAL CODE BABY
 
-rent_ready = db.collection('Vacancy').where("type", "==", "rent_ready").get()
-unit_turns = db.collection('Vacancy').where("type", "==", "unit_turns").get()
-just_rented = db.collection('Vacancy').where("type", "==", "just_rented").get()
-under_construction = db.collection('Vacancy').where("type", "==", "under_construction").get()
-no_status = db.collection('Vacancy').where("type", "==", "no_status").get()
+# rent_ready = db.collection('Vacancy').where("type", "==", "rent_ready").get()
+# unit_turns = db.collection('Vacancy').where("type", "==", "unit_turns").get()
+# just_rented = db.collection('Vacancy').where("type", "==", "just_rented").get()
+# under_construction = db.collection('Vacancy').where("type", "==", "under_construction").get()
+# no_status = db.collection('Vacancy').where("type", "==", "no_status").get()
+#
+# #Helper: replaces all "_" with " "
+# def format(key,value):
+#     return key.replace('_',' ')+value
+#
+# def format2(dic):
+#     s = ""
+#     for i in dic:
+#         if i!='type':
+#             s += format(i,"") + ", "
+#     return s
+# #to do: put everything in """"""" string
+# st.header('Rent Ready:')
+# # st.write('-  -  -  -  -  -  -  -  -  -  -')
+# s = """"""
+# for doc in rent_ready:
+#     d = doc.to_dict()
+#     for i in d:
+#         if i != 'type':
+#             s+= format(i,d[i]) + "\n"+"\n"
+# st.markdown(s)
+#
+# st.header('Unit Turns:')
+# # st.write('-  -  -  -  -  -  -  -  -  -  -')
+# for doc in unit_turns:
+#     d = doc.to_dict()
+#     for i in d:
+#         if i != 'type':
+#             st.write(format(i,d[i]))
+# st.title('Just Rented:')
+# # st.write('-  -  -  -  -  -  -  -  -  -  -')
+# for doc in just_rented:
+#     d = doc.to_dict()
+#     for i in d:
+#         if i != 'type':
+#             st.write(format(i,d[i]))
+# st.title('Under Construction:')
+# # st.write('-  -  -  -  -  -  -  -  -  -  -')
+# for doc in under_construction:
+#     d = doc.to_dict()
+#     string = format2(d)
+#     st.markdown(string)
+#
+# st.header('No Status:')
+# # st.write('-  -  -  -  -  -  -  -  -  -  -')
+# for doc in no_status:
+#     d = doc.to_dict()
+#     string = format2(d)
+#     st.write(string)
 
-#Helper: replaces all "_" with " "
-def format(key,value):
-    return key.replace('_',' ')+value
-
-def format2(dic):
-    s = ""
-    for i in dic:
-        if i!='type':
-            s += format(i,"") + ", "
-    return s
-#to do: put everything in """"""" string
-st.header('Rent Ready:')
-# st.write('-  -  -  -  -  -  -  -  -  -  -')
-s = """"""
-for doc in rent_ready:
-    d = doc.to_dict()
-    for i in d:
-        if i != 'type':
-            s+= format(i,d[i]) + "\n"+"\n"
-st.markdown(s)
-
-st.header('Unit Turns:')
-# st.write('-  -  -  -  -  -  -  -  -  -  -')
-for doc in unit_turns:
-    d = doc.to_dict()
-    for i in d:
-        if i != 'type':
-            st.write(format(i,d[i]))
-st.title('Just Rented:')
-# st.write('-  -  -  -  -  -  -  -  -  -  -')
-for doc in just_rented:
-    d = doc.to_dict()
-    for i in d:
-        if i != 'type':
-            st.write(format(i,d[i]))
-st.title('Under Construction:')
-# st.write('-  -  -  -  -  -  -  -  -  -  -')
-for doc in under_construction:
-    d = doc.to_dict()
-    string = format2(d)
-    st.markdown(string)
-
-st.header('No Status:')
-# st.write('-  -  -  -  -  -  -  -  -  -  -')
-for doc in no_status:
-    d = doc.to_dict()
-    string = format2(d)
-    st.write(string)
 ##C:\\Users\\Lenovo\\anaconda3\\envs\\streamlit
 
 
