@@ -57,12 +57,13 @@ for i in d:
 # text_output()
 
 L = ['a', 'b', 'c', 'd']
-s = """ """
+s = """"""
 for i in L:
-    # s += i + "\n"
-    st.markdown("- "+i)
-st.write(":heavy_minus_sign:" * 34)
-st.write('whatsup')
+    s += "- " + i + "\n"
+    # st.markdown("- "+i)
+st.markdown(s)
+# st.write(":heavy_minus_sign:" * 34)
+# st.write('whatsup')
 #STARTING THE REAL CODE BABY
 
 rent_ready = db.collection('Vacancy').where("type", "==", "rent_ready").get()
