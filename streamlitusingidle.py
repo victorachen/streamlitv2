@@ -81,14 +81,26 @@ st.markdown(s)
 st.write('faster flow through github baby!')
 
 #STARTING THE REAL CODE BABY
-st.write('Rent Ready:')
-st.write('-  -  -  -  -  -  -  -  -  -  -')
 
 rent_ready = db.collection('Vacancy').where("type", "==", "rent_ready").get()
-for doc in rent_ready:
-    d = doc.to_dict()
-    st.write(d)
+unit_turns = db.collection('Vacancy').where("type", "==", "unit_turns").get()
+just_rented = db.collection('Vacancy').where("type", "==", "just_rented").get()
+under_construction = db.collection('Vacancy').where("type", "==", "under_construction").get()
+no_status = db.collection('Vacancy').where("type", "==", "no_status").get()
 
+L = [rent_ready,unit_turns,just_rented,under_construction,no_status]
+
+#Helper: replaces all "_" with " "
+def format(key,value):
+    return key.replace('_',' ')+value
+for status in L:
+    st.write('Rent Ready:')
+    st.write('-  -  -  -  -  -  -  -  -  -  -')
+    for doc in status:
+        d = doc.to_dict()
+        for i in d:
+            if i != 'type':
+                st.write(format(i,d[i]))
 ##C:\\Users\\Lenovo\\anaconda3\\envs\\streamlit
 
 
