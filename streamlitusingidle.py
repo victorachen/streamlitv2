@@ -59,6 +59,9 @@ for i in d:
 ##print(s)
 
 # text_output()
+st.write('''The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: 
+The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: 
+The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: ''')
 
 col1, col2 = st.columns(2)
 
