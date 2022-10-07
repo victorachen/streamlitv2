@@ -54,7 +54,7 @@ for i in d:
 ##        s += str(dic[i])
 ##print(s)
 
-text_output()
+# text_output()
 
 L = ['a', 'b', 'c', 'd']
 s = """ """
