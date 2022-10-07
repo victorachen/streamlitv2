@@ -149,21 +149,53 @@ col3.subheader('Just Rented:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in just_rented:
     d = doc.to_dict()
-    for i in d:
-        if i != 'type':
-            col3.write(format(i,d[i]))
+#put everything into a list -> alphabetize list --> put alpha list into """ """ string
+L = []
+for i in d:
+    if i != 'type':
+        combined_str = format(i,'') + '' + d[i]
+        L.append(combined_str)
+Alph_L = alph(L,[])
+
+s = """"""
+for i in Alph_L:
+    s+= "- "+i + "\n"
+col3.markdown(s)
 
 col4.subheader('Under Construction:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in under_construction:
     d = doc.to_dict()
-    col4.code(format2(d))
+#put everything into a list -> alphabetize list --> put alpha list into """ """ string
+L = []
+for i in d:
+    if i != 'type':
+        combined_str = format(i,'') + '' + d[i]
+        L.append(combined_str)
+Alph_L = alph(L,[])
+
+s = """"""
+for i in Alph_L:
+    s+= "- "+i + "\n"
+col4.markdown(s)
 
 col5.subheader('No Status:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in no_status:
     d = doc.to_dict()
-    col5.write(format2(d))
+#put everything into a list -> alphabetize list --> put alpha list into """ """ string
+L = []
+for i in d:
+    if i != 'type':
+        combined_str = format(i,'') + '' + d[i]
+        L.append(combined_str)
+Alph_L = alph(L,[])
+
+s = """"""
+for i in Alph_L:
+    s+= "- "+i + "\n"
+col5.markdown(s)
+
 
 ##C:\\Users\\Lenovo\\anaconda3\\envs\\streamlit
 
