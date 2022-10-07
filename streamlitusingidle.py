@@ -69,65 +69,65 @@ for i in L:
     # st.markdown("- "+i)
 col1.markdown(s)
 
-col2.markdown(s)
 # st.write(":heavy_minus_sign:" * 34)
 # st.write('whatsup')
-#STARTING THE REAL CODE BABY
+# STARTING THE REAL CODE BABY
 
-# rent_ready = db.collection('Vacancy').where("type", "==", "rent_ready").get()
-# unit_turns = db.collection('Vacancy').where("type", "==", "unit_turns").get()
-# just_rented = db.collection('Vacancy').where("type", "==", "just_rented").get()
-# under_construction = db.collection('Vacancy').where("type", "==", "under_construction").get()
-# no_status = db.collection('Vacancy').where("type", "==", "no_status").get()
-#
-# #Helper: replaces all "_" with " "
-# def format(key,value):
-#     return key.replace('_',' ')+value
-#
-# def format2(dic):
-#     s = ""
-#     for i in dic:
-#         if i!='type':
-#             s += format(i,"") + ", "
-#     return s
-# #to do: put everything in """"""" string
-# st.header('Rent Ready:')
-# # st.write('-  -  -  -  -  -  -  -  -  -  -')
-# s = """"""
-# for doc in rent_ready:
-#     d = doc.to_dict()
-#     for i in d:
-#         if i != 'type':
-#             s+= format(i,d[i]) + "\n"+"\n"
-# st.markdown(s)
-#
-# st.header('Unit Turns:')
-# # st.write('-  -  -  -  -  -  -  -  -  -  -')
-# for doc in unit_turns:
-#     d = doc.to_dict()
-#     for i in d:
-#         if i != 'type':
-#             st.write(format(i,d[i]))
-# st.title('Just Rented:')
-# # st.write('-  -  -  -  -  -  -  -  -  -  -')
-# for doc in just_rented:
-#     d = doc.to_dict()
-#     for i in d:
-#         if i != 'type':
-#             st.write(format(i,d[i]))
-# st.title('Under Construction:')
-# # st.write('-  -  -  -  -  -  -  -  -  -  -')
-# for doc in under_construction:
-#     d = doc.to_dict()
-#     string = format2(d)
-#     st.markdown(string)
-#
-# st.header('No Status:')
-# # st.write('-  -  -  -  -  -  -  -  -  -  -')
-# for doc in no_status:
-#     d = doc.to_dict()
-#     string = format2(d)
-#     st.write(string)
+rent_ready = db.collection('Vacancy').where("type", "==", "rent_ready").get()
+unit_turns = db.collection('Vacancy').where("type", "==", "unit_turns").get()
+just_rented = db.collection('Vacancy').where("type", "==", "just_rented").get()
+under_construction = db.collection('Vacancy').where("type", "==", "under_construction").get()
+no_status = db.collection('Vacancy').where("type", "==", "no_status").get()
+
+#Helper: replaces all "_" with " "
+def format(key,value):
+    return key.replace('_',' ')+value
+
+def format2(dic):
+    s = ''''''
+    for i in dic:
+        if i!='type':
+            s += format(i,'') + ', '
+    return s
+#to do: put everything in """"""" string
+col1.header('Rent Ready:')
+# st.write('-  -  -  -  -  -  -  -  -  -  -')
+s = """"""
+for doc in rent_ready:
+    d = doc.to_dict()
+    for i in d:
+        if i != 'type':
+            s+= format(i,d[i]) + "\n"+"\n"
+col1.markdown(s)
+
+col1.header('Unit Turns:')
+# st.write('-  -  -  -  -  -  -  -  -  -  -')
+for doc in unit_turns:
+    d = doc.to_dict()
+    for i in d:
+        if i != 'type':
+            col1.write(format(i,d[i]))
+col2.title('Just Rented:')
+# st.write('-  -  -  -  -  -  -  -  -  -  -')
+for doc in just_rented:
+    d = doc.to_dict()
+    for i in d:
+        if i != 'type':
+            col2.write(format(i,d[i]))
+
+col2.title('Under Construction:')
+# st.write('-  -  -  -  -  -  -  -  -  -  -')
+for doc in under_construction:
+    d = doc.to_dict()
+    string = format2(d)
+    col2.code(string)
+
+col2.header('No Status:')
+# st.write('-  -  -  -  -  -  -  -  -  -  -')
+for doc in no_status:
+    d = doc.to_dict()
+    string = format2(d)
+    col2.write(string)
 
 ##C:\\Users\\Lenovo\\anaconda3\\envs\\streamlit
 
