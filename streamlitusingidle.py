@@ -88,19 +88,48 @@ just_rented = db.collection('Vacancy').where("type", "==", "just_rented").get()
 under_construction = db.collection('Vacancy').where("type", "==", "under_construction").get()
 no_status = db.collection('Vacancy').where("type", "==", "no_status").get()
 
-L = [rent_ready,unit_turns,just_rented,under_construction,no_status]
-
 #Helper: replaces all "_" with " "
 def format(key,value):
     return key.replace('_',' ')+value
-for status in L:
-    st.write('Rent Ready:')
-    st.write('-  -  -  -  -  -  -  -  -  -  -')
-    for doc in status:
-        d = doc.to_dict()
-        for i in d:
-            if i != 'type':
-                st.write(format(i,d[i]))
+def format2(dic):
+    s = ""
+    for i in dic:
+        s += i + ", "
+    return s
+
+st.write('Rent Ready:')
+st.write('-  -  -  -  -  -  -  -  -  -  -')
+for doc in rent_ready:
+    d = doc.to_dict()
+    for i in d:
+        if i != 'type':
+            st.write(format(i,d[i]))
+st.write('Unit Turns:')
+st.write('-  -  -  -  -  -  -  -  -  -  -')
+for doc in unit_turns:
+    d = doc.to_dict()
+    for i in d:
+        if i != 'type':
+            st.write(format(i,d[i]))
+st.write('Just Rented:')
+st.write('-  -  -  -  -  -  -  -  -  -  -')
+for doc in just_rented:
+    d = doc.to_dict()
+    for i in d:
+        if i != 'type':
+            st.write(format(i,d[i]))
+st.write('Under Construction:')
+st.write('-  -  -  -  -  -  -  -  -  -  -')
+for doc in under_construction:
+    d = doc.to_dict()
+    string = format2(d)
+    st.write(string)
+st.write('No Status:')
+st.write('-  -  -  -  -  -  -  -  -  -  -')
+for doc in no_status:
+    d = doc.to_dict()
+    string = format2(d)
+    st.write(string)
 ##C:\\Users\\Lenovo\\anaconda3\\envs\\streamlit
 
 
