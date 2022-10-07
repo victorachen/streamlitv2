@@ -118,7 +118,7 @@ for doc in rent_ready:
 L = []
 for i in d:
     if i != 'type':
-        combined_str = i + '' + d[i]
+        combined_str = format(i,'') + '' + d[i]
         L.append(combined_str)
 Alph_L = alph(L,[])
 
@@ -131,9 +131,20 @@ col2.subheader('Almost Ready! (Unit Turns):')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in unit_turns:
     d = doc.to_dict()
-    for i in d:
-        if i != 'type':
-            col2.write(format(i,d[i]))
+#put everything into a list -> alphabetize list --> put alpha list into """ """ string
+L = []
+for i in d:
+    if i != 'type':
+        combined_str = format(i,'') + '' + d[i]
+        L.append(combined_str)
+Alph_L = alph(L,[])
+
+s = """"""
+for i in Alph_L:
+    s+= "- "+i + "\n"
+col2.markdown(s)
+
+
 col3.subheader('Just Rented:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in just_rented:
