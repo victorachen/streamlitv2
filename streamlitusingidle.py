@@ -9,6 +9,12 @@
 import streamlit as st
 from dummy import *
 
+st.set_page_config(
+     page_title='Vacancies!',
+     layout="wide",
+     initial_sidebar_state="expanded",
+)
+
 ##Firebase stuff below:
 import firebase_admin
 from firebase_admin import credentials
