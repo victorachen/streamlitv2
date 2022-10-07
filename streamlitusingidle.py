@@ -59,7 +59,7 @@ for i in d:
 L = ['a', 'b', 'c', 'd']
 s = """ """
 for i in L:
-    s += i + "\n"
+    s += i + "\n"+ "\n"+ "\n"
 st.markdown(s)
 
 
@@ -89,29 +89,29 @@ for doc in rent_ready:
     for i in d:
         if i != 'type':
             st.write(format(i,d[i]))
-st.write('Unit Turns:')
-st.write('-  -  -  -  -  -  -  -  -  -  -')
+st.title('Unit Turns:')
+# st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in unit_turns:
     d = doc.to_dict()
     for i in d:
         if i != 'type':
             st.write(format(i,d[i]))
-st.write('Just Rented:')
-st.write('-  -  -  -  -  -  -  -  -  -  -')
+st.title('Just Rented:')
+# st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in just_rented:
     d = doc.to_dict()
     for i in d:
         if i != 'type':
             st.write(format(i,d[i]))
-st.write('Under Construction:')
-st.write('-  -  -  -  -  -  -  -  -  -  -')
+st.title('Under Construction:')
+# st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in under_construction:
     d = doc.to_dict()
     string = format2(d)
-    st.write(string)
+    st.markdown(string)
 
-st.write('No Status:')
-st.write('-  -  -  -  -  -  -  -  -  -  -')
+st.header('No Status:')
+# st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in no_status:
     d = doc.to_dict()
     string = format2(d)
