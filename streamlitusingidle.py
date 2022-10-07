@@ -82,6 +82,16 @@ col1, col2, col3, col4, col5 = st.columns(5)
 # st.write('whatsup')
 # STARTING THE REAL CODE BABY
 
+#Alphabetize a list (recursively)
+#given ['Pat 15','Pat 97','Wish 63'] -> alphabetize to -> ['Crest 1', 'Wish 63']
+def alph(ogL, newL):
+    if len(ogL) == 0:
+        return newL
+    min_ = min(ogL)
+    ogL.remove(min_)
+    newL.append(min_)
+    return alph(ogL,newL)
+
 rent_ready = db.collection('Vacancy').where("type", "==", "rent_ready").get()
 unit_turns = db.collection('Vacancy').where("type", "==", "unit_turns").get()
 just_rented = db.collection('Vacancy').where("type", "==", "just_rented").get()
@@ -98,15 +108,23 @@ def format2(dic):
         if i!='type':
             s += format(i,'') + ', '+"\n"
     return s
-#to do: put everything in """"""" string
+
 col1.subheader('Rent Ready:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
-s = """"""
+
 for doc in rent_ready:
     d = doc.to_dict()
-    for i in d:
-        if i != 'type':
-            s+= format(i,d[i]) + "\n"+"\n"
+#put everything into a list -> alphabetize list --> put alpha list into """ """ string
+L = []
+for i in d:
+    if i != 'type':
+        combined_str = i + '' + d[i]
+        L.append(combined_str)
+Alph_L = alph(L,[])
+
+s = """"""
+for i in Alph_L:
+    s+= "- "+i + "\n"
 col1.markdown(s)
 
 col2.subheader('Almost Ready! (Unit Turns):')
