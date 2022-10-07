@@ -59,7 +59,7 @@ for i in d:
 L = ['a', 'b', 'c', 'd']
 s = """ """
 for i in L:
-    s += i + "\n"+ "\n"+ "\n"
+    s += i + "\n"+ "\n"
 st.markdown(s)
 
 
@@ -81,15 +81,18 @@ def format2(dic):
         if i!='type':
             s += format(i,"") + ", "
     return s
-
-st.title('Rent Ready:')
+#to do: put everything in """"""" string
+st.header('Rent Ready:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
+s = """"""
 for doc in rent_ready:
     d = doc.to_dict()
     for i in d:
         if i != 'type':
-            st.write(format(i,d[i]))
-st.title('Unit Turns:')
+            s+= format(i,d[i]) + "\n"+"\n"
+st.markdown(s)
+
+st.header('Unit Turns:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in unit_turns:
     d = doc.to_dict()
