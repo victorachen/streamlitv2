@@ -63,14 +63,14 @@ st.write('''The rent guidelines are as follows: The rent guidelines are as follo
 The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: 
 The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: ''')
 
-col1, col2 = st.columns(2)
+col1, col2, col3, col4, col5 = st.columns(5)
 
-L = ['a', 'b', 'c', 'd']
-s = """"""
-for i in L:
-    s += "- " + i + "\n"
-    # st.markdown("- "+i)
-col1.markdown(s)
+# L = ['a', 'b', 'c', 'd']
+# s = """"""
+# for i in L:
+#     s += "- " + i + "\n"
+#     # st.markdown("- "+i)
+# col1.markdown(s)
 
 # st.write(":heavy_minus_sign:" * 34)
 # st.write('whatsup')
@@ -93,7 +93,7 @@ def format2(dic):
             s += format(i,'') + ', '+"\n"
     return s
 #to do: put everything in """"""" string
-col1.header('Rent Ready:')
+col1.subheader('Rent Ready:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 s = """"""
 for doc in rent_ready:
@@ -103,32 +103,32 @@ for doc in rent_ready:
             s+= format(i,d[i]) + "\n"+"\n"
 col1.markdown(s)
 
-col1.subheader('Unit Turns:')
+col2.subheader('Almost Ready! (Unit Turns):')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in unit_turns:
     d = doc.to_dict()
     for i in d:
         if i != 'type':
-            col1.write(format(i,d[i]))
-col2.title('Just Rented:')
+            col2.write(format(i,d[i]))
+col3.subheader('Just Rented:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in just_rented:
     d = doc.to_dict()
     for i in d:
         if i != 'type':
-            col2.write(format(i,d[i]))
+            col3.write(format(i,d[i]))
 
-col2.subheader('Under Construction:')
+col4.subheader('Under Construction:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in under_construction:
     d = doc.to_dict()
-    col2.code(format2(d))
+    col4.code(format2(d))
 
-col2.header('No Status:')
+col5.subheader('No Status:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in no_status:
     d = doc.to_dict()
-    col2.write(format2(d))
+    col5.write(format2(d))
 
 ##C:\\Users\\Lenovo\\anaconda3\\envs\\streamlit
 
