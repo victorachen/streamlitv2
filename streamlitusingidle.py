@@ -107,15 +107,15 @@ st.write('Under Construction:')
 st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in under_construction:
     d = doc.to_dict()
-string = format2(d)
-st.write(string)
+    string = format2(d)
+    st.write(string)
 
 st.write('No Status:')
 st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in no_status:
     d = doc.to_dict()
-string = format2(d)
-st.write(string)
+    string = format2(d)
+    st.write(string)
 ##C:\\Users\\Lenovo\\anaconda3\\envs\\streamlit
 
 
