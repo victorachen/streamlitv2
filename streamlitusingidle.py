@@ -1,5 +1,5 @@
 # to do next:
-# figure out how to write to new lines on streamlit
+# alphabetize everything
 
 ##terminal commands: streamlit run C:\Users\Lenovo\PycharmProjects\streamlit\streamlitusingidle.py
 import streamlit as st
@@ -59,10 +59,10 @@ for i in d:
 L = ['a', 'b', 'c', 'd']
 s = """ """
 for i in L:
-    s += i + "\n"
-st.markdown(s)
-
-
+    # s += i + "\n"
+    st.markdown("- "+i)
+st.write(":heavy_minus_sign:" * 34)
+st.write('whatsup')
 #STARTING THE REAL CODE BABY
 
 rent_ready = db.collection('Vacancy').where("type", "==", "rent_ready").get()
