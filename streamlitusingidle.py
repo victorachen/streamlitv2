@@ -59,7 +59,7 @@ for i in d:
 L = ['a', 'b', 'c', 'd']
 s = """ """
 for i in L:
-    s += i + "\n"+ "\n"
+    s += i + "\n"
 st.markdown(s)
 
 
