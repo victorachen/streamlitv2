@@ -3,7 +3,8 @@
 #col 1 vs col 2: https://daniellewisdl-streamlit-cheat-sheet-app-ytm9sg.streamlitapp.com/
 #plotly: https://mpkrass7-solid-octo-robot-migration-app-nabfxv.streamlitapp.com/
 #nav bar: https://github.com/giswqs/geemap-apps
-#testing update
+#testing update update once again
+
 
 ##terminal commands: streamlit run C:\Users\Lenovo\PycharmProjects\streamlit\streamlitusingidle.py
 import streamlit as st
