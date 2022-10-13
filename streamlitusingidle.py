@@ -143,7 +143,7 @@ Alph_L = alph(L,[])
 s = """"""
 for i in Alph_L:
     s+= "- "+i + "\n"
-col1.markdown(s)
+col1.code(s)
 
 
 col2.subheader('Just Rented:')
@@ -161,7 +161,7 @@ Alph_L = alph(L,[])
 s = """"""
 for i in Alph_L:
     s+= "- "+i + "\n"
-col2.markdown(s)
+col2.code(s)
 
 col3.subheader('Under Construction:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
@@ -195,7 +195,7 @@ Alph_L = alph(L,[])
 s = """"""
 for i in Alph_L:
     s+= "- "+i + "\n"
-col2.markdown(s)
+col2.code(s)
 
 st.write('')
 st.write('')
