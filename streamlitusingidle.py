@@ -125,8 +125,8 @@ Alph_L = alph(L,[])
 
 s = """"""
 for i in Alph_L:
-    s+= "- "+i + "\n"
-col1.markdown(s)
+    s+= "* "+i + "\n"
+col1.code(s)
 
 col1.subheader('Unit Turns:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
@@ -177,7 +177,7 @@ Alph_L = alph(L,[])
 
 s = """"""
 for i in Alph_L:
-    s+= "- "+i + "\n"
+    s+= "* "+i + "\n"
 col3.code(s)
 
 col2.subheader('No Status:')
