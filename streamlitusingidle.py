@@ -8,6 +8,7 @@
 
 ##terminal commands: streamlit run C:\Users\Lenovo\PycharmProjects\streamlit\streamlitusingidle.py
 import streamlit as st
+from natsort import natsorted, ns
 from dummy import *
 
 st.set_page_config(
@@ -87,12 +88,13 @@ col1, col2, col3 = st.columns(3)
 #Alphabetize a list (recursively)
 #given ['Pat 15','Pat 97','Wish 63'] -> alphabetize to -> ['Crest 1', 'Wish 63']
 def alph(ogL, newL):
-    if len(ogL) == 0:
-        return newL
-    min_ = min(ogL)
-    ogL.remove(min_)
-    newL.append(min_)
-    return alph(ogL,newL)
+    # if len(ogL) == 0:
+    #     return newL
+    # min_ = min(ogL)
+    # ogL.remove(min_)
+    # newL.append(min_)
+    # return alph(ogL,newL)
+    return natsorted(ogL, alg=ns.IGNORECASE)
 
 rent_ready = db.collection('Vacancy').where("type", "==", "rent_ready").get()
 unit_turns = db.collection('Vacancy').where("type", "==", "unit_turns").get()
