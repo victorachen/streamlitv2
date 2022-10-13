@@ -70,7 +70,7 @@ st.write('''The rent guidelines are as follows: The rent guidelines are as follo
 The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: 
 The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: ''')
 
-col1, col2, col3, col4 = st.columns(4)
+col1, col2, col3 = st.columns(3)
 
 # L = ['a', 'b', 'c', 'd']
 # s = """"""
@@ -178,9 +178,9 @@ Alph_L = alph(L,[])
 s = """"""
 for i in Alph_L:
     s+= "- "+i + "\n"
-col3.markdown(s)
+col3.code(s)
 
-col3.subheader('No Status:')
+col2.subheader('No Status:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in no_status:
     d = doc.to_dict()
@@ -195,7 +195,7 @@ Alph_L = alph(L,[])
 s = """"""
 for i in Alph_L:
     s+= "- "+i + "\n"
-col3.markdown(s)
+col2.markdown(s)
 
 st.write('')
 st.write('')
