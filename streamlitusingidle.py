@@ -66,10 +66,11 @@ for i in d:
 ##print(s)
 
 # text_output()
-st.write('''The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: 
-The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: 
-The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: ''')
+# st.write('''The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows:
+# The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows:
+# The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: ''')
 
+st.header('All Vacancy:')
 col1, col2, col3 = st.columns(3)
 
 # L = ['a', 'b', 'c', 'd']
@@ -142,7 +143,7 @@ Alph_L = alph(L,[])
 
 s = """"""
 for i in Alph_L:
-    s+= "- "+i + "\n"
+    s+= "* "+i + "\n"
 col1.code(s)
 
 
@@ -160,7 +161,7 @@ Alph_L = alph(L,[])
 
 s = """"""
 for i in Alph_L:
-    s+= "- "+i + "\n"
+    s+= "* "+i + "\n"
 col2.code(s)
 
 col3.subheader('Under Construction:')
@@ -194,7 +195,7 @@ Alph_L = alph(L,[])
 
 s = """"""
 for i in Alph_L:
-    s+= "- "+i + "\n"
+    s+= "* "+i + "\n"
 col2.code(s)
 
 st.write('')
