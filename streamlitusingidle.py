@@ -70,7 +70,7 @@ st.write('''The rent guidelines are as follows: The rent guidelines are as follo
 The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: 
 The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: ''')
 
-col1, col2, col3, col4, col5 = st.columns(5)
+col1, col2, col3, col4 = st.columns(4)
 
 # L = ['a', 'b', 'c', 'd']
 # s = """"""
@@ -128,7 +128,7 @@ for i in Alph_L:
     s+= "- "+i + "\n"
 col1.markdown(s)
 
-col2.subheader('Almost Ready! (Unit Turns):')
+col1.subheader('Unit Turns:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in unit_turns:
     d = doc.to_dict()
@@ -143,10 +143,10 @@ Alph_L = alph(L,[])
 s = """"""
 for i in Alph_L:
     s+= "- "+i + "\n"
-col2.markdown(s)
+col1.markdown(s)
 
 
-col3.subheader('Just Rented:')
+col2.subheader('Just Rented:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in just_rented:
     d = doc.to_dict()
@@ -161,9 +161,9 @@ Alph_L = alph(L,[])
 s = """"""
 for i in Alph_L:
     s+= "- "+i + "\n"
-col3.markdown(s)
+col2.markdown(s)
 
-col4.subheader('Under Construction:')
+col3.subheader('Under Construction:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in under_construction:
     d = doc.to_dict()
@@ -178,9 +178,9 @@ Alph_L = alph(L,[])
 s = """"""
 for i in Alph_L:
     s+= "- "+i + "\n"
-col4.markdown(s)
+col3.markdown(s)
 
-col5.subheader('No Status:')
+col3.subheader('No Status:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in no_status:
     d = doc.to_dict()
@@ -195,8 +195,11 @@ Alph_L = alph(L,[])
 s = """"""
 for i in Alph_L:
     s+= "- "+i + "\n"
-col5.markdown(s)
+col3.markdown(s)
 
+st.write('')
+st.write('')
+st.write('Updates Made Here: https://forms.gle/ZJminE5umWn9E8YM6')
 
 ##C:\\Users\\Lenovo\\anaconda3\\envs\\streamlit
 
