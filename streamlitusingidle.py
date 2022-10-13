@@ -67,6 +67,8 @@ for i in d:
 ##print(s)
 
 # text_output()
+
+#l
 # st.write('''The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows:
 # The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows:
 # The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: ''')
