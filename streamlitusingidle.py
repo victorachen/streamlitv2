@@ -8,8 +8,30 @@
 
 ##terminal commands: streamlit run C:\Users\Lenovo\PycharmProjects\streamlit\streamlitusingidle.py
 import streamlit as st
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import firestore
+from google.cloud import firestore
+from google.oauth2 import service_account
+import json
+
+
 from natsort import natsorted, ns
 from dummy import *
+
+
+key_dict = json.loads(st.secrets['textkey'])
+creds = service_account.Credentials.from_service_account_info(key_dict)
+db = firestore.Client(credentials=creds)
+
+entire_collection = db.collection('Vacancy').get()
+
+for doc in entire_collection:
+    d = doc.to_dict()
+    for entry in d:
+        st.write(entry + ': ' + d[entry])
+
+st.write("got this back up and running!")
 
 st.set_page_config(
      page_title='Vacancies!',
@@ -17,18 +39,13 @@ st.set_page_config(
      initial_sidebar_state="expanded",
 )
 
-##Firebase stuff below:
-import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import firestore
-
-if not firebase_admin._apps:
-    cred = credentials.Certificate(st.secrets["firestore_keys_baby"])
-    firebase_admin.initialize_app(cred)
-
-db = firestore.client()
-
-entire_collection = db.collection('Vacancy').get()
+##if not firebase_admin._apps:
+##    cred = credentials.Certificate(st.secrets["firestore_keys_baby"])
+##    firebase_admin.initialize_app(cred)
+##
+##db = firestore.client()
+##
+##entire_collection = db.collection('Vacancy').get()
 
 s = ""
 ##just_rented: dictionary of just rented units
@@ -204,7 +221,7 @@ col2.code(s)
 
 st.write('')
 st.write('')
-st.write('Updates Made Here: https://forms.gle/ZJminE5umWn9E8YM6')
+st.write('Please Update: https://forms.gle/ZJminE5umWn9E8YM6')
 
 ##C:\\Users\\Lenovo\\anaconda3\\envs\\streamlit
 
