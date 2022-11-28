@@ -26,12 +26,10 @@ db = firestore.Client(credentials=creds)
 
 entire_collection = db.collection('Vacancy').get()
 
-for doc in entire_collection:
-    d = doc.to_dict()
-    for entry in d:
-        st.write(entry + ': ' + d[entry])
-
-st.write("today is nov 27 2022")
+# for doc in entire_collection:
+#     d = doc.to_dict()
+#     for entry in d:
+#         st.write(entry + ': ' + d[entry])
 
 st.set_page_config(
      page_title='Vacancies!',
@@ -39,20 +37,13 @@ st.set_page_config(
      initial_sidebar_state="expanded",
 )
 
-##if not firebase_admin._apps:
-##    cred = credentials.Certificate(st.secrets["firestore_keys_baby"])
-##    firebase_admin.initialize_app(cred)
-##
-##db = firestore.client()
-##
-##entire_collection = db.collection('Vacancy').get()
-
 s = ""
 ##just_rented: dictionary of just rented units
 just_rented = db.collection('Vacancy').where("type", "==", "just_rented").get()
 for doc in just_rented:
     d = doc.to_dict()
-print(d)
+
+st.write('got this far on Nov 27th')
 
 for i in d:
     print(i)
