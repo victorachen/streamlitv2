@@ -31,7 +31,7 @@ for doc in entire_collection:
     for entry in d:
         st.write(entry + ': ' + d[entry])
 
-st.write("got this back up and running, perhaps?")
+st.write("got this back up and running!")
 
 st.set_page_config(
      page_title='Vacancies!',
