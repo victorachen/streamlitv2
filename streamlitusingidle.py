@@ -39,15 +39,13 @@ st.set_page_config(
 
 s = ""
 ##just_rented: dictionary of just rented units
-just_rented = db.collection('Vacancy').where("type", "==", "just_rented").get()
-for doc in just_rented:
-    d = doc.to_dict()
-
-st.write('got this far on Nov 27th')
-
-for i in d:
-    print(i)
-    print(d[i])
+# just_rented = db.collection('Vacancy').where("type", "==", "just_rented").get()
+# for doc in just_rented:
+#     d = doc.to_dict()
+#
+# for i in d:
+#     print(i)
+#     print(d[i])
 
 
 # no_status
@@ -95,15 +93,9 @@ col1, col2, col3 = st.columns(3)
 # st.write('whatsup')
 # STARTING THE REAL CODE BABYyy
 
-#Alphabetize a list (recursively)
+#Alphabetize a list using NatSort
 #given ['Pat 15','Pat 97','Wish 63'] -> alphabetize to -> ['Crest 1', 'Wish 63']
 def alph(ogL, newL):
-    # if len(ogL) == 0:
-    #     return newL
-    # min_ = min(ogL)
-    # ogL.remove(min_)
-    # newL.append(min_)
-    # return alph(ogL,newL)
     return natsorted(ogL, alg=ns.IGNORECASE)
 
 rent_ready = db.collection('Vacancy').where("type", "==", "rent_ready").get()
