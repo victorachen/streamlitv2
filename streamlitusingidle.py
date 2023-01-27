@@ -102,6 +102,7 @@ rent_ready = db.collection('Vacancy').where("type", "==", "rent_ready").get()
 unit_turns = db.collection('Vacancy').where("type", "==", "unit_turns").get()
 just_rented = db.collection('Vacancy').where("type", "==", "just_rented").get()
 under_construction = db.collection('Vacancy').where("type", "==", "under_construction").get()
+vacant_lots = db.collection('Vacancy').where("type", "==", "empty_lots").get()
 no_status = db.collection('Vacancy').where("type", "==", "no_status").get()
 
 #Helper: replaces all "_" with " "
@@ -133,7 +134,7 @@ for i in Alph_L:
     s+= "* "+i + "\n"
 col1.code(s)
 
-col1.subheader('Unit Turns:')
+col1.subheader('Recently Vacated- Needs Work:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in unit_turns:
     d = doc.to_dict()
@@ -168,7 +169,7 @@ for i in Alph_L:
     s+= "* "+i + "\n"
 col2.code(s)
 
-col3.subheader('Under Construction:')
+col3.subheader('New Coach/Construction:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in under_construction:
     d = doc.to_dict()
@@ -185,7 +186,24 @@ for i in Alph_L:
     s+= "* "+i + "\n"
 col3.code(s)
 
-col2.subheader('No Status:')
+col3.subheader('Vacant Lots:')
+# st.write('-  -  -  -  -  -  -  -  -  -  -')
+for doc in vacant_lots:
+    d = doc.to_dict()
+#put everything into a list -> alphabetize list --> put alpha list into """ """ string
+L = []
+for i in d:
+    if i != 'type':
+        combined_str = format(i,'') + '' + d[i]
+        L.append(combined_str)
+Alph_L = alph(L,[])
+
+s = """"""
+for i in Alph_L:
+    s+= "* "+i + "\n"
+col3.code(s)
+
+col2.subheader('No Status (Pls Update):')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in no_status:
     d = doc.to_dict()
