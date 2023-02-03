@@ -249,6 +249,8 @@ def second_gate():
         if submit:
             st.write('nested submit')
             st.write('category: '+ category)
+    return None
+
 second_gate()
 
     # if category == 'New Coach/Construction':
@@ -273,7 +275,6 @@ second_gate()
         # chartname = material + "- Purchase History Below:"
         # csvname = material + "_purchase_history.csv"
         #     (df, chartname, csvname)
-    return None
 
 provide_more_details()
 
