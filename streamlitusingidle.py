@@ -1,3 +1,6 @@
+# #Vacant Lots: (1) Lot Size (2) Coach Size, (3) Status
+# #New Constr (1) who is the contractor, (2) status/next steps
+#
 # to do next:
 # alphabetize everything, do bullet points, but pricing at the top
 #col 1 vs col 2: https://daniellewisdl-streamlit-cheat-sheet-app-ytm9sg.streamlitapp.com/
@@ -225,9 +228,40 @@ col2.code(s)
 def provide_more_details():
     form = st.form(key='input')
     form.header('Provide More Details Here:')
-    material = form.selectbox("Select Option", ['a','b','c','d'])
+    list = ['Vacant Lots','New Coach/Construction','Recently Vacated-Needs Work']
+    category = form.selectbox("Select Option", list)
     submit = form.form_submit_button('Submit')
     if submit:
+        #once you hit submit list (1) further option (depending on which category) and (2) list of possible units
+        if category == 'Vacant Lots':
+            subform = st.form(key='subform')
+            subform.header('Subform:')
+            sublist = ['a','b','c']
+            subcategory = subform.selectbox("Select suboption", sublist)
+            submit_again =  form.form_submit_button('Submit Again')
+            if submit_again:
+                st.write('nested submit')
+                st.write('subcategory '+subcategory)
+
+        if category == 'New Coach/Construction':
+            subform = st.form(key='subform')
+            subform.header('Subform:')
+            sublist = ['a', 'b', 'c']
+            subcategory = subform.selectbox("Select suboption", sublist)
+            submit_again = form.form_submit_button('Submit Again')
+            if submit_again:
+                st.write('nested submit')
+                st.write('subcategory ' + subcategory)
+        if category == 'Recently Vacated-Needs Work':
+            subform = st.form(key='subform')
+            subform.header('Subform:')
+            sublist = ['a', 'b', 'c']
+            subcategory = subform.selectbox("Select suboption", sublist)
+            submit_again = form.form_submit_button('Submit Again')
+            if submit_again:
+                st.write('nested submit')
+                st.write('subcategory ' + subcategory)
+
         st.write('clicked it')
         st.write(material)
         # df = purchase_history_backend(material)
