@@ -220,6 +220,24 @@ for i in Alph_L:
     s+= "* "+i + "\n"
 col2.code(s)
 
+#Code from Feb 2nd
+#Layering in more details on Streamlit top layer
+def provide_more_details():
+    form = st.form(key='input')
+    form.header('Provide More Details Here:')
+    material = form.selectbox("Select Option", ['a','b','c','d'])
+    submit = form.form_submit_button('Submit')
+    if submit:
+        st.write('clicked it')
+        st.write(material)
+        # df = purchase_history_backend(material)
+        # chartname = material + "- Purchase History Below:"
+        # csvname = material + "_purchase_history.csv"
+        #     (df, chartname, csvname)
+    return None
+
+provide_more_details()
+
 st.write('')
 st.write('')
 st.write('Please Update: https://forms.gle/ZJminE5umWn9E8YM6')
