@@ -256,7 +256,8 @@ def second_gate():
         # }
         new_entry = {unit:comb_str}
         # db.collection('Vacancy').document('Layer2').set(data)
-        db.collection('Vacancy').document('Layer2').update(new_entry)
+        # db.collection('Vacancy').document('Layer2').update(new_entry)
+        db.collection('Vacancy').document('Layer2').add(new_entry)
         return None
 
     def vacant_lots():
