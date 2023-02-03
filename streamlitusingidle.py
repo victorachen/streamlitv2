@@ -239,7 +239,7 @@ def first_gate():
 
 #Firestore Layer 2: maps streamlit inputs into "Layer 2" of Streamlit (separate collection)
 #ex) layer2mapping('Hol5','vacant_lot','lot size: 50lx34w, coach size: 20x40, status: waiting on javier'
-def layer2mapping(unit,lifecyclestage,string)
+def layer2mapping(unit,lifecyclestage,string):
     return None
 
 def second_gate():
