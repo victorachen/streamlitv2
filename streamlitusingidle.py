@@ -251,13 +251,15 @@ def second_gate():
 
     #Backend Helper- Writing to Firestore Layer 2 (
     def write_to_firestoreL2(unit,comb_str):
+        docs = db.collection('Vacancy').get().to_dict()
+        st.write(docs)
         # data = {
         #     unit: comb_str
         # }
-        new_entry = {unit:comb_str}
+        # new_entry = {unit:comb_str}
         # db.collection('Vacancy').document('Layer2').set(data)
         # db.collection('Vacancy').document('Layer2').update(new_entry)
-        db.collection('Vacancy').document('Layer2').add(new_entry)
+        # db.collection('Vacancy').document('Layer2').add(new_entry)
         return None
 
     def vacant_lots():
