@@ -251,7 +251,7 @@ def second_gate():
 
     #Backend Helper- Writing to Firestore Layer 2 (
     def write_to_firestoreL2(unit,comb_str):
-        docs = db.collection('Vacancy').get().to_dict()
+        docs = db.collection('Vacancy').document('Layer2').get()
         st.write(docs)
         # data = {
         #     unit: comb_str
