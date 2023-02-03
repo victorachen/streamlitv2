@@ -238,7 +238,7 @@ def provide_more_details():
             subform.header('Subform:')
             sublist = ['a','b','c']
             subcategory = subform.selectbox("Select suboption", sublist)
-            submit_again =  form.form_submit_button('Submit Again')
+            submit_again =  subform.form_submit_button('Submit Again')
             if submit_again:
                 st.write('nested submit')
                 st.write('subcategory '+subcategory)
@@ -248,7 +248,7 @@ def provide_more_details():
             subform.header('Subform:')
             sublist = ['a', 'b', 'c']
             subcategory = subform.selectbox("Select suboption", sublist)
-            submit_again = form.form_submit_button('Submit Again')
+            submit_again = subform.form_submit_button('Submit Again')
             if submit_again:
                 st.write('nested submit')
                 st.write('subcategory ' + subcategory)
@@ -257,7 +257,7 @@ def provide_more_details():
             subform.header('Subform:')
             sublist = ['a', 'b', 'c']
             subcategory = subform.selectbox("Select suboption", sublist)
-            submit_again = form.form_submit_button('Submit Again')
+            submit_again = subform.form_submit_button('Submit Again')
             if submit_again:
                 st.write('nested submit')
                 st.write('subcategory ' + subcategory)
