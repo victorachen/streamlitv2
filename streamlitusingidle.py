@@ -239,16 +239,20 @@ def first_gate():
 def second_gate():
     input = first_gate()
 
-    #once you hit submit list (1) further option (depending on which category) and (2) list of possible units
-    if input == 'Vacant Lots' and st.session_state.submit == 'yes':
+    def vacant_lots():
         form = st.form(key='secondform')
         form.header('Subform:')
-        list = ['a','b','c']
+        list = ['a', 'b', 'c']
         category = form.selectbox("Select suboption", list)
-        submit =  form.form_submit_button('Submit Again')
+        submit = form.form_submit_button('Submit Again')
         if submit:
             st.write('nested submit')
-            st.write('category: '+ category)
+            st.write('category: ' + category)
+        return None
+    #once you hit submit list (1) further option (depending on which category) and (2) list of possible units
+    if input == 'Vacant Lots' and st.session_state.submit == 'yes':
+        vacant_lots()
+
     return None
 
 second_gate()
