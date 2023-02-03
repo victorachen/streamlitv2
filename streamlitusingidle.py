@@ -1,4 +1,4 @@
-# to do: work on line 242
+# to do: work on line 257 - debugging
 # #Vacant Lots: (1) Lot Size (2) Coach Size, (3) Status
 # #New Constr (1) who is the contractor, (2) status/next steps
 #
@@ -254,7 +254,7 @@ def second_gate():
         data = {
             unit: comb_str
         }
-        db.collection('Vacancy').document(Layer2).set(data)
+        db.collection('Vacancy').document('Layer2').set(data)
         return None
 
     def vacant_lots():
