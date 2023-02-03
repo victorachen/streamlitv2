@@ -235,7 +235,8 @@ def first_gate():
     list = ['Vacant Lots','New Coach/Construction','Recently Vacated-Needs Work']
     input = form.selectbox("Select Option", list)
     submit = form.form_submit_button('Submit')
-    st.session_state['submit'] = 'no'
+    if 'submit' not in st.session_state:
+        st.session_state['submit'] = 'no'
     if submit:
         st.session_state['submit'] = 'yes'
     return input
