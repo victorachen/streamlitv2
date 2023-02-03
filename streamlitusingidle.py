@@ -1,3 +1,4 @@
+# to do: work on line 242
 # #Vacant Lots: (1) Lot Size (2) Coach Size, (3) Status
 # #New Constr (1) who is the contractor, (2) status/next steps
 #
@@ -236,6 +237,11 @@ def first_gate():
         st.session_state['submit'] = 'yes'
     return input
 
+#Firestore Layer 2: maps streamlit inputs into "Layer 2" of Streamlit (separate collection)
+#ex) layer2mapping('Hol5','vacant_lot','lot size: 50lx34w, coach size: 20x40, status: waiting on javier'
+def layer2mapping(unit,lifecyclestage,string)
+    return None
+
 def second_gate():
     input = first_gate()
 
@@ -249,10 +255,34 @@ def second_gate():
             st.write('nested submit')
             st.write('category: ' + category)
         return None
+
+    def under_construction():
+        form = st.form(key='secondform')
+        form.header('Subform:')
+        list = ['a', 'b', 'c']
+        category = form.selectbox("Select suboption", list)
+        submit = form.form_submit_button('Submit Again')
+        if submit:
+            st.write('nested submit')
+            st.write('category: ' + category)
+        return None
+    def unit_turns():
+        form = st.form(key='secondform')
+        form.header('Subform:')
+        list = ['a', 'b', 'c']
+        category = form.selectbox("Select suboption", list)
+        submit = form.form_submit_button('Submit Again')
+        if submit:
+            st.write('nested submit')
+            st.write('category: ' + category)
+        return None
     #once you hit submit list (1) further option (depending on which category) and (2) list of possible units
     if input == 'Vacant Lots' and st.session_state.submit == 'yes':
         vacant_lots()
-
+    if input == 'New Coach/Construction' and st.session_state.submit == 'yes':
+        under_construction()
+    if input == 'Recently Vacated-Needs Work' and st.session_state.submit == 'yes':
+        unit_turns()
     return None
 
 second_gate()
@@ -279,8 +309,6 @@ second_gate()
         # chartname = material + "- Purchase History Below:"
         # csvname = material + "_purchase_history.csv"
         #     (df, chartname, csvname)
-
-provide_more_details()
 
 st.write('')
 st.write('')
