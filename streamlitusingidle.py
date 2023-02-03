@@ -269,6 +269,7 @@ def second_gate():
         comb_str = '- Lot:'+str(lot_width)+'x'+str(lot_length)+'/Coach:'+str(coach_width)+'x'+str(coach_length)+'/'+status
         submit = form.form_submit_button('Submit Again')
         if submit:
+            st.write('submitted')
             write_to_firestoreL2(unit,comb_str)
             st.write(comb_str)
             st.write('nested submit')
