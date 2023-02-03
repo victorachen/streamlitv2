@@ -260,13 +260,13 @@ def second_gate():
         form = st.form(key='secondform')
         form.header('Subform:')
 
-        lot_length = form.selectbox("Lot Length,0,200")
-        lot_width = form.selectbox("Lot Width,0,100")
-        coach_length = form.selectbox("Coach Length,0,200")
-        coach_width = form.selectbox("Coach Width,0,100")
+        lot_length = form.selectbox("Lot Length",0,200)
+        lot_width = form.selectbox("Lot Width",0,100)
+        coach_length = form.selectbox("Coach Length",0,200)
+        coach_width = form.selectbox("Coach Width",0,100)
         status = form.text_input('status')
-        # unit = form.selectbox("Select suboption", Vacant_Lot_List)
-        # comb_str = '- Lot:'+lot_width+'x'+lot_length+'/Coach:'+coach_width+'x'+coach_length+'/'+status
+        unit = form.selectbox("Select suboption", Vacant_Lot_List)
+        comb_str = '- Lot:'+lot_width+'x'+lot_length+'/Coach:'+coach_width+'x'+coach_length+'/'+status
         submit = form.form_submit_button('Submit Again')
         if submit:
             write_to_firestoreL2(unit,comb_str)
