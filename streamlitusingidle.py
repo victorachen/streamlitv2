@@ -201,6 +201,8 @@ for i in d:
         combined_str = format(i,'') + '' + d[i]
         L.append(combined_str)
 Alph_L = alph(L,[])
+#used further down in the code (new edit)
+Vacant_Lot_List = Alph_L
 
 s = """"""
 for i in Alph_L:
@@ -233,6 +235,7 @@ def first_gate():
     list = ['Vacant Lots','New Coach/Construction','Recently Vacated-Needs Work']
     input = form.selectbox("Select Option", list)
     submit = form.form_submit_button('Submit')
+    st.session_state['submit'] = 'no'
     if submit:
         st.session_state['submit'] = 'yes'
     return input
@@ -245,15 +248,30 @@ def layer2mapping(unit,lifecyclestage,string):
 def second_gate():
     input = first_gate()
 
+    #Backend Helper- Writing to Firestore Layer 2 (
+    def write_to_firestoreL2(unit,comb_str):
+        data = {
+            unit: comb_str
+        }
+        db.collection('Vacancy').document(Layer2).set(data)
+        return None
+
     def vacant_lots():
         form = st.form(key='secondform')
         form.header('Subform:')
-        list = ['a', 'b', 'c']
-        category = form.selectbox("Select suboption", list)
-        submit = form.form_submit_button('Submit Again')
+
+        lot_length = form.selectbox("Lot Length,0,200")
+        lot_width = form.selectbox("Lot Width,0,100")
+        coach_length = form.selectbox("Coach Length,0,200")
+        coach_width = form.selectbox("Coach Width,0,100")
+        status = form.text_input('status')
+        unit = form.selectbox("Select suboption", Vacant_Lot_List)
+        comb_str = '- Lot:'+lot_width+'x'+lot_length+'/Coach:'+coach_width+'x'+coach_length+'/'+status
+        submit = form.form_submit_button('Submit')
         if submit:
+            write_to_firestoreL2(unit,comb_str)
+            st.write(comb_str)
             st.write('nested submit')
-            st.write('category: ' + category)
         return None
 
     def under_construction():
