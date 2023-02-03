@@ -97,6 +97,17 @@ col1, col2, col3 = st.columns(3)
 # st.write('whatsup')
 # STARTING THE REAL CODE BABYyy
 
+#Feb 3rd 2023 Code bby
+#Ex) Av 42 ---> Av 42 - Lot:10x40/Coach:20x40/Comment
+def appendL2(unit):
+    #Layer 2 dictionary below
+    dic = db.collection('Vacancy').document('Layer2').get().to_dict()
+    #If there is a Layer 2 (streamlit edit), append onto original string
+    if unit in dic:
+        append_str = dic[unit]
+        unit = unit + append_str
+    return unit
+
 #Alphabetize a list using NatSort
 #given ['Pat 15','Pat 97','Wish 63'] -> alphabetize to -> ['Crest 1', 'Wish 63']
 def alph(ogL, newL):
@@ -206,6 +217,8 @@ Vacant_Lot_List = Alph_L
 
 s = """"""
 for i in Alph_L:
+    #append L2 string to each unit
+    i = appendL2(i)
     s+= "* "+i + "\n"
 col3.code(s)
 
@@ -253,15 +266,8 @@ def second_gate():
     def write_to_firestoreL2(unit,comb_str):
         dic = db.collection('Vacancy').document('Layer2').get().to_dict()
         dic[unit] = comb_str
-
-        # data = {
-        #     unit: comb_str
-        # }
-        # new_entry = {unit:comb_str}
         db.collection('Vacancy').document('Layer2').set(dic)
         st.write(dic)
-        # db.collection('Vacancy').document('Layer2').update(new_entry)
-        # db.collection('Vacancy').document('Layer2').add(new_entry)
         return None
 
     def vacant_lots():
