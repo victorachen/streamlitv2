@@ -225,45 +225,50 @@ col2.code(s)
 
 #Code from Feb 2nd
 #Layering in more details on Streamlit top layer
-def provide_more_details():
+#first "gate"
+def first_gate():
     form = st.form(key='input')
     form.header('Provide More Details Here:')
     list = ['Vacant Lots','New Coach/Construction','Recently Vacated-Needs Work']
-    category = form.selectbox("Select Option", list)
+    input = form.selectbox("Select Option", list)
     submit = form.form_submit_button('Submit')
     if submit:
-        #once you hit submit list (1) further option (depending on which category) and (2) list of possible units
-        if category == 'Vacant Lots':
-            subform = st.form(key='subform')
-            subform.header('Subform:')
-            sublist = ['a','b','c']
-            subcategory = subform.selectbox("Select suboption", sublist)
-            submit_again =  subform.form_submit_button('Submit Again')
-            if submit_again:
-                st.write('nested submit')
-                st.write('subcategory '+subcategory)
+        st.session_state['submit'] = 'yes'
+    return input
 
-        if category == 'New Coach/Construction':
-            subform = st.form(key='subform')
-            subform.header('Subform:')
-            sublist = ['a', 'b', 'c']
-            subcategory = subform.selectbox("Select suboption", sublist)
-            submit_again = subform.form_submit_button('Submit Again')
-            if submit_again:
-                st.write('nested submit')
-                st.write('subcategory ' + subcategory)
-        if category == 'Recently Vacated-Needs Work':
-            subform = st.form(key='subform')
-            subform.header('Subform:')
-            sublist = ['a', 'b', 'c']
-            subcategory = subform.selectbox("Select suboption", sublist)
-            submit_again = subform.form_submit_button('Submit Again')
-            if submit_again:
-                st.write('nested submit')
-                st.write('subcategory ' + subcategory)
+def second_gate():
+    input = first_gate()
 
-        st.write('clicked it')
-        st.write(material)
+    #once you hit submit list (1) further option (depending on which category) and (2) list of possible units
+    if input == 'Vacant Lots' and st.session_state.submit == 'yes':
+        form = st.form(key='secondform')
+        form.header('Subform:')
+        list = ['a','b','c']
+        category = form.selectbox("Select suboption", list)
+        submit =  form.form_submit_button('Submit Again')
+        if submit:
+            st.write('nested submit')
+            st.write('category: '+ category)
+second_gate()
+
+    # if category == 'New Coach/Construction':
+    #     subform = st.form(key='subform')
+    #     subform.header('Subform:')
+    #     sublist = ['a', 'b', 'c']
+    #     subcategory = subform.selectbox("Select suboption", sublist)
+    #     submit_again = subform.form_submit_button('Submit Again')
+    #     if submit_again:
+    #         st.write('nested submit')
+    #         st.write('subcategory ' + subcategory)
+    # if category == 'Recently Vacated-Needs Work':
+    #     subform = st.form(key='subform')
+    #     subform.header('Subform:')
+    #     sublist = ['a', 'b', 'c']
+    #     subcategory = subform.selectbox("Select suboption", sublist)
+    #     submit_again = subform.form_submit_button('Submit Again')
+    #     if submit_again:
+    #         st.write('nested submit')
+    #         st.write('subcategory ' + subcategory)
         # df = purchase_history_backend(material)
         # chartname = material + "- Purchase History Below:"
         # csvname = material + "_purchase_history.csv"
