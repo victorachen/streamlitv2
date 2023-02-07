@@ -195,6 +195,8 @@ for i in d:
         combined_str = format(i,'') + '' + d[i]
         L.append(combined_str)
 Alph_L = alph(L,[])
+#used further down in the code (new edit)
+Constr_List = Alph_L
 
 s = """"""
 for i in Alph_L:
@@ -273,31 +275,39 @@ def second_gate():
     def vacant_lots():
         form = st.form(key='secondform')
         form.header('Subform:')
-
-        lot_length = form.number_input("Lot Length",0,200)
-        lot_width = form.number_input("Lot Width",0,100)
-        coach_length = form.number_input("Coach Length",0,200)
+        coach_length = form.number_input("Coach Length",0,100)
         coach_width = form.number_input("Coach Width",0,100)
         status = form.text_input('status')
         unit = form.selectbox("Select suboption", Vacant_Lot_List)
-        comb_str = '- Lot:'+str(lot_width)+'x'+str(lot_length)+'/Coach:'+str(coach_width)+'x'+str(coach_length)+'/'+status
-        submit = form.form_submit_button('Submit Again')
+        comb_str = 'Coach:'+str(coach_width)+'x'+str(coach_length)+'/'+status
+        submit = form.form_submit_button('Submit')
         if submit:
             st.write('submitted')
             write_to_firestoreL2(unit,comb_str)
             st.write(comb_str)
-            st.write('nested submit')
         return None
 
     def under_construction():
         form = st.form(key='secondform')
         form.header('Subform:')
-        list = ['a', 'b', 'c']
-        category = form.selectbox("Select suboption", list)
-        submit = form.form_submit_button('Submit Again')
+        #G=Green light (passed),Y=Yellow light(ready for inspetion),R=Red Light(Ball in my court),NN = Not Needed
+        inspections = ['R','Y','G','NN']
+        #G=Green light (received),Y=Yellow light(pending city),R=Red Light(Ball in my court)
+        permits = ['R','Y','G','NN']
+        unit = form.selectbox("Select suboption", Constr_List)
+        contractor = form.text_input('contractor')
+        Ycity_permit = form.selectbox("Yucaipa Permit", permits)
+        HCD_permit = form.selectbox("HCD Permit", permits)
+        HCD_siding = form.selectbox("Yucaipa Siding Inspection", inspections)
+        HCD_final = form.selectbox("HCD Final Inspection", inspections)
+        Ycity_final = form.selectbox("Yucaipa Final Inspection", inspections)
+        status = form.text_input('status')
+        comb_str = 'YPermit:'+Ycity_permit+'/HCDPermit:'+HCD_permit+'/HCDSidingInsp:'+HCD_siding+'/HCDFinalInsp:'+HCD_final+'/YFinalInsp'+Ycity_final+'/Contractor:'+contractor+'/Status:'+status
+        submit = form.form_submit_button('Submit')
         if submit:
-            st.write('nested submit')
-            st.write('category: ' + category)
+            st.write('submitted')
+            write_to_firestoreL2(unit,comb_str)
+            st.write(comb_str)
         return None
     def unit_turns():
         form = st.form(key='secondform')
