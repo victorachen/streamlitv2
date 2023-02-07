@@ -200,6 +200,8 @@ Constr_List = Alph_L
 
 s = """"""
 for i in Alph_L:
+    # append L2 string to each unit
+    i = appendL2(i)
     s+= "* "+i + "\n"
 col3.code(s)
 
@@ -278,7 +280,7 @@ def second_gate():
         coach_length = form.number_input("Coach Length",0,100)
         coach_width = form.number_input("Coach Width",0,100)
         status = form.text_input('status')
-        unit = form.selectbox("Select suboption", Vacant_Lot_List)
+        unit = form.selectbox("Unit", Vacant_Lot_List)
         comb_str = 'Coach:'+str(coach_width)+'x'+str(coach_length)+'/'+status
         submit = form.form_submit_button('Submit')
         if submit:
@@ -294,7 +296,7 @@ def second_gate():
         inspections = ['R','Y','G','NN']
         #G=Green light (received),Y=Yellow light(pending city),R=Red Light(Ball in my court)
         permits = ['R','Y','G','NN']
-        unit = form.selectbox("Select suboption", Constr_List)
+        unit = form.selectbox("Unit", Constr_List)
         contractor = form.text_input('contractor')
         Ycity_permit = form.selectbox("Yucaipa Permit", permits)
         HCD_permit = form.selectbox("HCD Permit", permits)
@@ -302,7 +304,7 @@ def second_gate():
         HCD_final = form.selectbox("HCD Final Inspection", inspections)
         Ycity_final = form.selectbox("Yucaipa Final Inspection", inspections)
         status = form.text_input('status')
-        comb_str = 'YPermit:'+Ycity_permit+'/HCDPermit:'+HCD_permit+'/HCDSidingInsp:'+HCD_siding+'/HCDFinalInsp:'+HCD_final+'/YFinalInsp'+Ycity_final+'/Contractor:'+contractor+'/Status:'+status
+        comb_str = 'YPermit:'+Ycity_permit+' /HCDPermit:'+HCD_permit+' /HCDSidingInsp:'+HCD_siding+' /HCDFinalInsp:'+HCD_final+' /YFinalInsp:'+Ycity_final+' /Contractor:'+contractor+' /Status:'+status
         submit = form.form_submit_button('Submit')
         if submit:
             st.write('submitted')
