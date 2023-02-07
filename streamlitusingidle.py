@@ -295,16 +295,16 @@ def second_gate():
 
     def under_construction():
         form = st.form(key='secondform')
-        form.header('Subform:')
+        form.header('New Coach/Construction - There is something on the lot!')
         #G=Green light (passed),Y=Yellow light(ready for inspetion),R=Red Light(Ball in my court),NN = Not Needed
         inspections = ['R','Y','G','NN']
 
         unit = form.selectbox("Unit", Constr_List)
         contractor = form.text_input('contractor')
-        HCD_insp = form.selectbox("HCD Final Inspection", inspections)
-        Ycity_final = form.selectbox("Yucaipa Final Inspection", inspections)
+        HCD_insp = form.selectbox("HCD Inspection Status", inspections)
+        Ycity_final = form.selectbox("Yucaipa Inspection Status", inspections)
         status = form.text_input('status')
-        comb_str = '- HCD_Insp:'+HCD_isnp+' /Y_Insp:'+Ycity_final+' /Contr: '+contractor+' / '+status
+        comb_str = '- HCD_Insp:'+HCD_insp+' /Y_Insp:'+Ycity_final+' /Contr: '+contractor+' / '+status
         submit = form.form_submit_button('Submit')
         if submit:
             st.write('submitted')
