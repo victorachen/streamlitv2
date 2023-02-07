@@ -304,7 +304,7 @@ def second_gate():
         HCD_insp = form.selectbox("HCD Final Inspection", inspections)
         Ycity_final = form.selectbox("Yucaipa Final Inspection", inspections)
         status = form.text_input('status')
-        comb_str = '- HCD_Insp:'+HCD_final+' /Y_Insp:'+Ycity_final+' /Contr: '+contractor+' / '+status
+        comb_str = '- HCD_Insp:'+HCD_isnp+' /Y_Insp:'+Ycity_final+' /Contr: '+contractor+' / '+status
         submit = form.form_submit_button('Submit')
         if submit:
             st.write('submitted')
