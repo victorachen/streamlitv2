@@ -285,7 +285,7 @@ def second_gate():
         HCD_permit = form.selectbox("HCD Permit", permits)
         status = form.text_input('status')
         unit = form.selectbox("Unit", Vacant_Lot_List)
-        comb_str = '- Coach:'+str(coach_width)+'x'+str(coach_length)+'/YPermit:'+Ycity_permit+' /HCDPermit:'+HCD_permit+' /status:'+status
+        comb_str = '- Coach:'+str(coach_width)+'x'+str(coach_length)+'/YPermit:'+Ycity_permit+' /HCDPermit:'+HCD_permit+' / '+status
         submit = form.form_submit_button('Submit')
         if submit:
             st.write('submitted')
@@ -301,11 +301,10 @@ def second_gate():
 
         unit = form.selectbox("Unit", Constr_List)
         contractor = form.text_input('contractor')
-        HCD_siding = form.selectbox("Yucaipa Siding Inspection", inspections)
-        HCD_final = form.selectbox("HCD Final Inspection", inspections)
+        HCD_insp = form.selectbox("HCD Final Inspection", inspections)
         Ycity_final = form.selectbox("Yucaipa Final Inspection", inspections)
         status = form.text_input('status')
-        comb_str = '- HCDSidingInsp:'+HCD_siding+' /HCDFinalInsp:'+HCD_final+' /YFinalInsp:'+Ycity_final+' /Contractor:'+contractor+' /Status:'+status
+        comb_str = '- HCD_Insp:'+HCD_final+' /Y_Insp:'+Ycity_final+' /Contr: '+contractor+' / '+status
         submit = form.form_submit_button('Submit')
         if submit:
             st.write('submitted')
