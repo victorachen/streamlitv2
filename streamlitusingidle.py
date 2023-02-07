@@ -279,9 +279,13 @@ def second_gate():
         form.header('Subform:')
         coach_length = form.number_input("Coach Length",0,100)
         coach_width = form.number_input("Coach Width",0,100)
+        # G=Green light (received),Y=Yellow light(pending city),R=Red Light(Ball in my court)
+        permits = ['R', 'Y', 'G', 'NN']
+        Ycity_permit = form.selectbox("Yucaipa Permit", permits)
+        HCD_permit = form.selectbox("HCD Permit", permits)
         status = form.text_input('status')
         unit = form.selectbox("Unit", Vacant_Lot_List)
-        comb_str = 'Coach:'+str(coach_width)+'x'+str(coach_length)+'/'+status
+        comb_str = '- Coach:'+str(coach_width)+'x'+str(coach_length)+'/YPermit:'+Ycity_permit+' /HCDPermit:'+HCD_permit+' /status:'+status
         submit = form.form_submit_button('Submit')
         if submit:
             st.write('submitted')
@@ -294,17 +298,14 @@ def second_gate():
         form.header('Subform:')
         #G=Green light (passed),Y=Yellow light(ready for inspetion),R=Red Light(Ball in my court),NN = Not Needed
         inspections = ['R','Y','G','NN']
-        #G=Green light (received),Y=Yellow light(pending city),R=Red Light(Ball in my court)
-        permits = ['R','Y','G','NN']
+
         unit = form.selectbox("Unit", Constr_List)
         contractor = form.text_input('contractor')
-        Ycity_permit = form.selectbox("Yucaipa Permit", permits)
-        HCD_permit = form.selectbox("HCD Permit", permits)
         HCD_siding = form.selectbox("Yucaipa Siding Inspection", inspections)
         HCD_final = form.selectbox("HCD Final Inspection", inspections)
         Ycity_final = form.selectbox("Yucaipa Final Inspection", inspections)
         status = form.text_input('status')
-        comb_str = 'YPermit:'+Ycity_permit+' /HCDPermit:'+HCD_permit+' /HCDSidingInsp:'+HCD_siding+' /HCDFinalInsp:'+HCD_final+' /YFinalInsp:'+Ycity_final+' /Contractor:'+contractor+' /Status:'+status
+        comb_str = '- HCDSidingInsp:'+HCD_siding+' /HCDFinalInsp:'+HCD_final+' /YFinalInsp:'+Ycity_final+' /Contractor:'+contractor+' /Status:'+status
         submit = form.form_submit_button('Submit')
         if submit:
             st.write('submitted')
