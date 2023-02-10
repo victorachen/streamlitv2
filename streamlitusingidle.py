@@ -251,7 +251,7 @@ col2.code(s)
 def first_gate():
     form = st.form(key='input')
     form.header('Update This Website:')
-    form.markdown('_*Updates made here will show up on this website only (will **not** send in the group text message_')
+    form.markdown('_*Updates made here will show up on this website only (will **not** send in the group text message)_')
     list = ['Vacant Lots','New Coach/Construction','Recently Vacated-Needs Work']
     input = form.selectbox("Select Option", list)
     submit = form.form_submit_button('Submit')
@@ -289,7 +289,7 @@ def second_gate():
         serial = form.text_input('serial')
         status = form.text_input('status')
         unit = form.selectbox("Unit", Vacant_Lot_List)
-        comb_str = '- Coach:'+str(coach_width)+'x'+str(coach_length)+'/YPermit:'+Ycity_permit+' /HCDPermit:'+HCD_permit+' /Serial: '+serial+' / '+status
+        comb_str = '- Coach:'+str(coach_width)+'x'+str(coach_length)+'/YPermit:'+Ycity_permit+' /HCDPermit:'+HCD_permit+' /Decal&Serial: '+serial+' / '+status
         submit = form.form_submit_button('Submit')
         if submit:
             st.write('submitted')
@@ -309,7 +309,7 @@ def second_gate():
         Ycity_final = form.selectbox("Yucaipa Inspection Status", inspections)
         serial = form.text_input('serial')
         status = form.text_input('status')
-        comb_str = '- HCD Insp:'+HCD_insp+' /Y Insp:'+Ycity_final+' / '+contractor+' /Serial: '+serial+' / '+status
+        comb_str = '- HCD Insp:'+HCD_insp+' /Y Insp:'+Ycity_final+' / '+contractor+' /Decal&Serial: '+serial+' / '+status
         submit = form.form_submit_button('Submit')
         if submit:
             st.write('submitted')
@@ -369,6 +369,7 @@ def text_msg_input():
     form = st.form(key='txtmsg_input')
     form.header('Update the Text Message:')
     form.write('https://forms.gle/ZJminE5umWn9E8YM6')
+    submit = form.form_submit_button('Submit')
     return None
 text_msg_input()
 
