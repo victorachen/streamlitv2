@@ -164,6 +164,7 @@ Turnover_List = Alph_L
 
 s = """"""
 for i in Alph_L:
+    i = appendL2(i)
     s+= "* "+i + "\n"
 col1.code(s)
 
@@ -249,7 +250,7 @@ col2.code(s)
 #first "gate"
 def first_gate():
     form = st.form(key='input')
-    form.header('Provide More Details Here:')
+    form.header('Update the Website:')
     list = ['Vacant Lots','New Coach/Construction','Recently Vacated-Needs Work']
     input = form.selectbox("Select Option", list)
     submit = form.form_submit_button('Submit')
@@ -272,12 +273,12 @@ def second_gate():
         dic = db.collection('Vacancy').document('Layer2').get().to_dict()
         dic[unit] = comb_str
         db.collection('Vacancy').document('Layer2').set(dic)
-        st.write(dic)
+        # st.write(dic)
         return None
 
     def vacant_lots():
         form = st.form(key='secondform')
-        form.header('Subform:')
+        form.header('Vacant Lots:')
         coach_length = form.number_input("Coach Length",0,100)
         coach_width = form.number_input("Coach Width",0,100)
         # G=Green light (received),Y=Yellow light(pending city),R=Red Light(Ball in my court)
@@ -316,7 +317,7 @@ def second_gate():
         return None
     def unit_turns():
         form = st.form(key='secondform')
-        form.header('Subform:')
+        form.header('Recently Vacated (Unit Turnovers):')
         unit = form.selectbox("Unit", Turnover_List)
         contractor = form.text_input('contractor')
         status = form.text_input('status')
@@ -325,6 +326,7 @@ def second_gate():
         if submit:
             st.write('submitted!')
             write_to_firestoreL2(unit,comb_str)
+            st.write(comb_str)
         return None
     #once you hit submit list (1) further option (depending on which category) and (2) list of possible units
     if input == 'Vacant Lots' and st.session_state.submit == 'yes':
@@ -362,7 +364,7 @@ second_gate()
 
 st.write('')
 st.write('')
-st.write('Please Update: https://forms.gle/ZJminE5umWn9E8YM6')
+st.write('Update the Text Message: https://forms.gle/ZJminE5umWn9E8YM6')
 
 ##C:\\Users\\Lenovo\\anaconda3\\envs\\streamlit
 
