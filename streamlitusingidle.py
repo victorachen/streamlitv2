@@ -126,6 +126,7 @@ for doc in under_construction:
     d = doc.to_dict()
 #put everything into a list -> alphabetize list --> put alpha list into """ """ string
 L = []
+st.write(d)
 for i in d:
     if i != 'type':
         combined_str = format(i,'') + '' + d[i]
