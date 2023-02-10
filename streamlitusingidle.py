@@ -85,18 +85,6 @@ s = ""
 # The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: ''')
 
 st.header('Vacancies (More Detailed Version of the Text Message)')
-col1, col2, col3 = st.columns(3)
-
-# L = ['a', 'b', 'c', 'd']
-# s = """"""
-# for i in L:
-#     s += "- " + i + "\n"
-#     # st.markdown("- "+i)
-# col1.markdown(s)
-
-# st.write(":heavy_minus_sign:" * 34)
-# st.write('whatsup')
-# STARTING THE REAL CODE BABYyy
 
 #Feb 3rd 2023 Code bby
 #Ex) Av 42 ---> Av 42 - Lot:10x40/Coach:20x40/Comment
@@ -173,6 +161,8 @@ for i in Alph_L:
     i = appendL2(i)
     s+= "* "+i + "\n"
 st.code(s)
+
+col1, col2, col3 = st.columns(3)
 
 col1.subheader('Rent Ready:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
