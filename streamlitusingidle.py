@@ -132,7 +132,7 @@ def format2(dic):
             s += format(i,'') + ', '+"\n"
     return s
 
-subheader('New Coach/Construction:')
+st.subheader('New Coach/Construction:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in under_construction:
     d = doc.to_dict()
@@ -151,9 +151,9 @@ for i in Alph_L:
     # append L2 string to each unit
     i = appendL2(i)
     s+= "* "+i + "\n"
-code(s)
+st.code(s)
 
-subheader('Vacant Lots:')
+st.subheader('Vacant Lots:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 for doc in vacant_lots:
     d = doc.to_dict()
@@ -172,7 +172,7 @@ for i in Alph_L:
     #append L2 string to each unit
     i = appendL2(i)
     s+= "* "+i + "\n"
-code(s)
+st.code(s)
 
 col1.subheader('Rent Ready:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
