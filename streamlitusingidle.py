@@ -160,6 +160,7 @@ for i in d:
         combined_str = format(i,'') + '' + d[i]
         L.append(combined_str)
 Alph_L = alph(L,[])
+Turnover_List = Alph_L
 
 s = """"""
 for i in Alph_L:
@@ -283,9 +284,10 @@ def second_gate():
         permits = ['R', 'Y', 'G', 'NN']
         Ycity_permit = form.selectbox("Yucaipa Permit", permits)
         HCD_permit = form.selectbox("HCD Permit", permits)
+        serial = form.text_input('serial')
         status = form.text_input('status')
         unit = form.selectbox("Unit", Vacant_Lot_List)
-        comb_str = '- Coach:'+str(coach_width)+'x'+str(coach_length)+'/YPermit:'+Ycity_permit+' /HCDPermit:'+HCD_permit+' / '+status
+        comb_str = '- Coach:'+str(coach_width)+'x'+str(coach_length)+'/YPermit:'+Ycity_permit+' /HCDPermit:'+HCD_permit+' /Serial: '+serial+' / '+status
         submit = form.form_submit_button('Submit')
         if submit:
             st.write('submitted')
@@ -295,7 +297,7 @@ def second_gate():
 
     def under_construction():
         form = st.form(key='secondform')
-        form.header('New Coach/Construction - There is something on the lot!')
+        form.header('New Coach/Construction - There is a house on the lot now!')
         #G=Green light (passed),Y=Yellow light(ready for inspetion),R=Red Light(Ball in my court),NN = Not Needed
         inspections = ['R','Y','G','NN']
 
@@ -303,8 +305,9 @@ def second_gate():
         contractor = form.text_input('contractor')
         HCD_insp = form.selectbox("HCD Inspection Status", inspections)
         Ycity_final = form.selectbox("Yucaipa Inspection Status", inspections)
+        serial = form.text_input('serial')
         status = form.text_input('status')
-        comb_str = '- HCD_Insp:'+HCD_insp+' /Y_Insp:'+Ycity_final+' /Contr: '+contractor+' / '+status
+        comb_str = '- HCD Insp:'+HCD_insp+' /Y Insp:'+Ycity_final+' /Contr:'+contractor+' /Serial: '+serial+' / '+status
         submit = form.form_submit_button('Submit')
         if submit:
             st.write('submitted')
@@ -314,12 +317,14 @@ def second_gate():
     def unit_turns():
         form = st.form(key='secondform')
         form.header('Subform:')
-        list = ['a', 'b', 'c']
-        category = form.selectbox("Select suboption", list)
-        submit = form.form_submit_button('Submit Again')
+        unit = form.selectbox("Unit", Turnover_List)
+        contractor = form.text_input('contractor')
+        status = form.text_input('status')
+        submit = form.form_submit_button('Submit')
+        comb_str = '- Contractor: '+contractor+'/ status:'+status
         if submit:
-            st.write('nested submit')
-            st.write('category: ' + category)
+            st.write('submitted!')
+            write_to_firestoreL2(unit,comb_str)
         return None
     #once you hit submit list (1) further option (depending on which category) and (2) list of possible units
     if input == 'Vacant Lots' and st.session_state.submit == 'yes':
