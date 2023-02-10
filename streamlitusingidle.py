@@ -83,7 +83,7 @@ s = ""
 # The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows:
 # The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: ''')
 
-st.header('Vacancy - More Detailed Version of the Text Message')
+st.header('Vacancies (More Detailed Version of the Text Message)')
 col1, col2, col3 = st.columns(3)
 
 # L = ['a', 'b', 'c', 'd']
@@ -251,8 +251,7 @@ col2.code(s)
 def first_gate():
     form = st.form(key='input')
     form.header('Update This Website:')
-    form.subheader('*Updates made here will show up on this website only')
-    form.subheader('*They will NOT send as text messages or show up on the text message')
+    form.markdown('_*Updates made here will show up on this website only (will **not** send in the group text message_')
     list = ['Vacant Lots','New Coach/Construction','Recently Vacated-Needs Work']
     input = form.selectbox("Select Option", list)
     submit = form.form_submit_button('Submit')
@@ -368,9 +367,8 @@ st.write('')
 st.write('')
 def text_msg_input():
     form = st.form(key='txtmsg_input')
-    st.header('Update the Text Message:')
-    st.subheader('*Updates made on the Google Form show up on the text message AND this website:')
-    st.write('https://forms.gle/ZJminE5umWn9E8YM6')
+    form.header('Update the Text Message:')
+    form.write('https://forms.gle/ZJminE5umWn9E8YM6')
     return None
 text_msg_input()
 
