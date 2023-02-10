@@ -83,7 +83,7 @@ s = ""
 # The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows:
 # The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: The rent guidelines are as follows: ''')
 
-st.header('All Vacancy:')
+st.header('Vacancy - More Detailed Version of the Text Message')
 col1, col2, col3 = st.columns(3)
 
 # L = ['a', 'b', 'c', 'd']
@@ -250,7 +250,9 @@ col2.code(s)
 #first "gate"
 def first_gate():
     form = st.form(key='input')
-    form.header('Update the Website:')
+    form.header('Update This Website:')
+    form.subheader('*Updates made here will show up on this website only')
+    form.subheader('*They will NOT send as text messages or show up on the text message')
     list = ['Vacant Lots','New Coach/Construction','Recently Vacated-Needs Work']
     input = form.selectbox("Select Option", list)
     submit = form.form_submit_button('Submit')
@@ -308,7 +310,7 @@ def second_gate():
         Ycity_final = form.selectbox("Yucaipa Inspection Status", inspections)
         serial = form.text_input('serial')
         status = form.text_input('status')
-        comb_str = '- HCD Insp:'+HCD_insp+' /Y Insp:'+Ycity_final+' /Contr:'+contractor+' /Serial: '+serial+' / '+status
+        comb_str = '- HCD Insp:'+HCD_insp+' /Y Insp:'+Ycity_final+' / '+contractor+' /Serial: '+serial+' / '+status
         submit = form.form_submit_button('Submit')
         if submit:
             st.write('submitted')
@@ -322,7 +324,7 @@ def second_gate():
         contractor = form.text_input('contractor')
         status = form.text_input('status')
         submit = form.form_submit_button('Submit')
-        comb_str = '- Contractor: '+contractor+'/ status:'+status
+        comb_str = contractor+': '+status
         if submit:
             st.write('submitted!')
             write_to_firestoreL2(unit,comb_str)
@@ -364,7 +366,13 @@ second_gate()
 
 st.write('')
 st.write('')
-st.write('Update the Text Message: https://forms.gle/ZJminE5umWn9E8YM6')
+def text_msg_input():
+    form = st.form(key='txtmsg_input')
+    st.header('Update the Text Message:')
+    st.subheader('*Updates made on the Google Form show up on the text message AND this website:')
+    st.write('https://forms.gle/ZJminE5umWn9E8YM6')
+    return None
+text_msg_input()
 
 ##C:\\Users\\Lenovo\\anaconda3\\envs\\streamlit
 
