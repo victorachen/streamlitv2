@@ -162,7 +162,7 @@ for i in Alph_L:
     s+= "* "+i + "\n"
 st.code(s)
 
-col1, col2, col3 = st.columns(3)
+col1, col2 = st.columns(2)
 
 col1.subheader('Rent Ready:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
