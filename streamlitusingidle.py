@@ -1,4 +1,5 @@
-# to do: work on line 257 - debugging
+# to do: think about building a tag locator on this site
+
 # #Vacant Lots: (1) Lot Size (2) Coach Size, (3) Status
 # #New Constr (1) who is the contractor, (2) status/next steps
 #
@@ -131,6 +132,48 @@ def format2(dic):
             s += format(i,'') + ', '+"\n"
     return s
 
+subheader('New Coach/Construction:')
+# st.write('-  -  -  -  -  -  -  -  -  -  -')
+for doc in under_construction:
+    d = doc.to_dict()
+#put everything into a list -> alphabetize list --> put alpha list into """ """ string
+L = []
+for i in d:
+    if i != 'type':
+        combined_str = format(i,'') + '' + d[i]
+        L.append(combined_str)
+Alph_L = alph(L,[])
+#used further down in the code (new edit)
+Constr_List = Alph_L
+
+s = """"""
+for i in Alph_L:
+    # append L2 string to each unit
+    i = appendL2(i)
+    s+= "* "+i + "\n"
+code(s)
+
+subheader('Vacant Lots:')
+# st.write('-  -  -  -  -  -  -  -  -  -  -')
+for doc in vacant_lots:
+    d = doc.to_dict()
+#put everything into a list -> alphabetize list --> put alpha list into """ """ string
+L = []
+for i in d:
+    if i != 'type':
+        combined_str = format(i,'') + '' + d[i]
+        L.append(combined_str)
+Alph_L = alph(L,[])
+#used further down in the code (new edit)
+Vacant_Lot_List = Alph_L
+
+s = """"""
+for i in Alph_L:
+    #append L2 string to each unit
+    i = appendL2(i)
+    s+= "* "+i + "\n"
+code(s)
+
 col1.subheader('Rent Ready:')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
 
@@ -186,47 +229,6 @@ for i in Alph_L:
     s+= "* "+i + "\n"
 col2.code(s)
 
-col3.subheader('New Coach/Construction:')
-# st.write('-  -  -  -  -  -  -  -  -  -  -')
-for doc in under_construction:
-    d = doc.to_dict()
-#put everything into a list -> alphabetize list --> put alpha list into """ """ string
-L = []
-for i in d:
-    if i != 'type':
-        combined_str = format(i,'') + '' + d[i]
-        L.append(combined_str)
-Alph_L = alph(L,[])
-#used further down in the code (new edit)
-Constr_List = Alph_L
-
-s = """"""
-for i in Alph_L:
-    # append L2 string to each unit
-    i = appendL2(i)
-    s+= "* "+i + "\n"
-col3.code(s)
-
-col3.subheader('Vacant Lots:')
-# st.write('-  -  -  -  -  -  -  -  -  -  -')
-for doc in vacant_lots:
-    d = doc.to_dict()
-#put everything into a list -> alphabetize list --> put alpha list into """ """ string
-L = []
-for i in d:
-    if i != 'type':
-        combined_str = format(i,'') + '' + d[i]
-        L.append(combined_str)
-Alph_L = alph(L,[])
-#used further down in the code (new edit)
-Vacant_Lot_List = Alph_L
-
-s = """"""
-for i in Alph_L:
-    #append L2 string to each unit
-    i = appendL2(i)
-    s+= "* "+i + "\n"
-col3.code(s)
 
 col2.subheader('No Status (Pls Update):')
 # st.write('-  -  -  -  -  -  -  -  -  -  -')
@@ -286,10 +288,11 @@ def second_gate():
         permits = ['R', 'Y', 'G', 'NN']
         Ycity_permit = form.selectbox("Yucaipa Permit", permits)
         HCD_permit = form.selectbox("HCD Permit", permits)
-        serial = form.text_input('serial')
+        serial = form.text_input('Decal, Serial')
+        tags = form.text_input('Where are the physical tags?')
         status = form.text_input('status')
         unit = form.selectbox("Unit", Vacant_Lot_List)
-        comb_str = '- Coach:'+str(coach_width)+'x'+str(coach_length)+'/YPermit:'+Ycity_permit+' /HCDPermit:'+HCD_permit+' /Decal&Serial: '+serial+' / '+status
+        comb_str = '- Coach:'+str(coach_width)+'x'+str(coach_length)+'/YPermit:'+Ycity_permit+' /HCDPermit:'+HCD_permit+' /Decal&Serial: '+serial+' /Tags:'+tags+' / '+status
         submit = form.form_submit_button('Submit')
         if submit:
             st.write('submitted')
@@ -307,9 +310,10 @@ def second_gate():
         contractor = form.text_input('contractor')
         HCD_insp = form.selectbox("HCD Inspection Status", inspections)
         Ycity_final = form.selectbox("Yucaipa Inspection Status", inspections)
-        serial = form.text_input('serial')
+        serial = form.text_input('Decal, Serial')
+        tags = form.text_input('Where are the physical tags?')
         status = form.text_input('status')
-        comb_str = '- HCD Insp:'+HCD_insp+' /Y Insp:'+Ycity_final+' / '+contractor+' /Decal&Serial: '+serial+' / '+status
+        comb_str = '- HCD Insp:'+HCD_insp+' /Y Insp:'+Ycity_final+' / '+contractor+' /Decal&Serial: '+serial+' /Tags:'+tags+' / '+status
         submit = form.form_submit_button('Submit')
         if submit:
             st.write('submitted')
