@@ -295,6 +295,7 @@ def second_gate():
         form.header('New Coach/Construction - There is a house on the lot now!')
         #G=Green light (passed),Y=Yellow light(ready for inspetion),R=Red Light(Ball in my court),NN = Not Needed
         inspections = ['R','Y','G','NN']
+        windows = ['arrived','ordered','need to order','no need']
 
         unit = form.selectbox("Unit", Constr_List)
         contractor = form.text_input('contractor')
@@ -302,8 +303,10 @@ def second_gate():
         Ycity_final = form.selectbox("Yucaipa Inspection Status", inspections)
         serial = form.text_input('Decal, Serial')
         tags = form.text_input('Where are the physical tags?')
+        win_status = form.selectbox("What is the status on the windows?",windows)
+        win_pickup_date = form.text_input("If ordered, when is pickup date?")
         status = form.text_input('status')
-        comb_str = '- HCD Insp:'+HCD_insp+' /Y Insp:'+Ycity_final+' / '+contractor+' /Decal&Serial: '+serial+' /Tags:'+tags+' / '+status
+        comb_str = '- HCD Insp:'+HCD_insp+' /Y Insp:'+Ycity_final+' / '+contractor+' /Decal&Serial: '+serial+' /Tags:'+tags+' /Windows: '+win_status+ ' / Wind ready on:'+ win_pickup_date+ ' / '+status
         submit = form.form_submit_button('Submit')
         if submit:
             st.write('submitted')
@@ -313,11 +316,15 @@ def second_gate():
     def unit_turns():
         form = st.form(key='secondform')
         form.header('Recently Vacated (Unit Turnovers):')
+        windows = ['arrived', 'ordered', 'need to order', 'no need']
+
         unit = form.selectbox("Unit", Turnover_List)
         contractor = form.text_input('contractor')
+        win_status = form.selectbox("What is the status on the windows?", windows)
+        win_pickup_date = form.text_input("If ordered, when is pickup date?")
         status = form.text_input('status')
         submit = form.form_submit_button('Submit')
-        comb_str = contractor+': '+status
+        comb_str = contractor+': '+' /Windows:'+win_status+ ' / Wind ready on:'+ win_pickup_date+ ' / '+status
         if submit:
             st.write('submitted!')
             write_to_firestoreL2(unit,comb_str)
