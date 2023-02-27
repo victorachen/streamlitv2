@@ -374,6 +374,10 @@ def text_msg_input():
     return None
 text_msg_input()
 
+st.write('')
+st.write('Windows:')
+st.write('https://docs.google.com/spreadsheets/d/1bDm8ZCUIRoHtd721QQT6G3skY2OsiBE522aAnfsC56o/edit?usp=sharing')
+
 ##C:\\Users\\Lenovo\\anaconda3\\envs\\streamlit
 
 
